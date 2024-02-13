@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="body">
+    <div class="catalog">
+        <h1 class="title">Управление товарным каталогом</h1>
+        <form id="addProductForm">
+            <input id="productName" class="input" type="text"  placeholder="Название товара" required>
+            <select id="productCategory" class="input" >
+              <option value="электроника">Электроника</option>
+              <option value="одежда">Одежда</option>
+              <option value="бытовая техника">Бытовая техника</option>
+              <option value="игрушки">Игрушки</option>
+            </select>
+            <input id="productPrice" class="input" type="number"  placeholder="Цена" required>
+            <button class="btn" type="submit">Добавить товар</button>
+          </form>
+
+          <h1 class="title">Список товаров</h1>
+          <div class="list">
+            <select class="input" id="productCategory">
+                <option value="электроника">Электроника</option>
+                <option value="одежда">Одежда</option>
+                <option value="бытовая техника">Бытовая техника</option>
+                <option value="игрушки">Игрушки</option>
+              </select>
+        </div>
+    </div>
+</body>
+</html>
