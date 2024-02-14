@@ -1,5 +1,6 @@
 .body {
     background-color: rgb(218, 217, 217);
+    margin: 0 auto;
 }
 
 .catalog {
@@ -42,4 +43,33 @@
 .list {
     display: flex;
     margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.products-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product {
+    margin: 10px 5px 10px 0px; 
+}
+.product-none {
+    display: none;
+}
+
+.delete-btn {
+    background-color: rgb(76, 76, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+#productCategory-list {
+    margin-left: 60px;
+    margin-bottom: 50px;
 }
