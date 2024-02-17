@@ -26,15 +26,31 @@ function addToArray() {
 btnSubmit.addEventListener('click', addToArray);
 console.log(productArray);
 
+// функция создания контейнера с товаром
+
+function createProduсts(object) {
+    const productList = document.createElement('div');
+    productList.classList.add('products-list');
+    list.append(productList);
+    productList.id = `${object.id}`;
+
+    let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.textContent = 'Удалить товар';
+    deleteBtn.id = `${object.id}`;
+
+    const productValue = document.createElement('p');
+    productValue.classList.add('product');
+    productValue.textContent = `Название: ${object.name}, цена: ${object.price}`;
+
+    productList.append(productValue, deleteBtn);
+}
 //Функция отображения массива с товарами на странице
+
 function addToTist() {
     list.innerHTML = '';
     for (let obj of productArray) {
-
-        list.insertAdjacentHTML('beforeend',
-            `<div class="products-list"> 
-        <p class="product"> Название: ${obj.name}, цена: ${obj.price} </p>
-        <button class="delete-btn" type="submit"> Удалить товар </button> </div>`);
+        createProduсts(obj);
     }
 };
 
@@ -47,38 +63,23 @@ btnSubmit.addEventListener('click', addToTist);
 const prodCatList = document.getElementById("productCategory-list")
 
 function catalogFilter() {
-    const newCatalog = [];
-    console.log(prodCatList.value);
     list.innerHTML = '';
     for (let obj of productArray) {
         if (prodCatList.value === 'Невыбрано') {
             addToTist();
         } else if (prodCatList.value === obj.category) {
-            newCatalog.push(obj);
-            list.insertAdjacentHTML('beforeend',
-                `<div class="products-list"> 
-            <p class="product"> Название: ${obj.name}, цена: ${obj.price} </p>
-            <button class="delete-btn" type="submit"> Удалить товар </button> </div>`);
+            createProduсts(obj);
         }
     }
     console.log(newCatalog);
 };
-
 prodCatList.addEventListener('change', catalogFilter);
 
 // Функция удаления по нажатию на кнопку
 
-
-
-// Подскажите, Я создаю кнопку на 37ой строке <button class="delete-btn" type="submit">
+// Подскажите, Я создаю кнопку на 37ой строке 
 // Но я не могу повешать на нее addEvenListener , потому что кнопка создасться только в
 // момент добавления товара
-const deleteBtn = document.querySelector('.delete-btn');
-console.log(deleteBtn);
-// Если сейчас посмотреть в консоль то будет null
-deleteBtn.addEventListener('click', function() {
-    console.log('Привет');
-})
 // А когда добавляю Слушателя то ошибка в консоле.
 // В общем вопрос, как слушателя добавить на кнопку, которая только будет создана,
-// но еще не создана?
+// но еще не создана? 
