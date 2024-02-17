@@ -4,7 +4,7 @@ const productCategory = document.getElementById('productCategory');
 const productPrice = document.getElementById('productPrice');
 let list = document.querySelector('.list');
 let count = 1;
-const productArray = [];
+let productArray = [];
 
 
 //Функция добавления товаров в массив
@@ -24,7 +24,6 @@ function addToArray() {
 }
 
 btnSubmit.addEventListener('click', addToArray);
-console.log(productArray);
 
 // функция создания контейнера с товаром
 
@@ -37,7 +36,17 @@ function createProduсts(object) {
     let deleteBtn = document.createElement('button');
     deleteBtn.className = 'delete-btn';
     deleteBtn.textContent = 'Удалить товар';
+    deleteBtn.type = 'submit';
     deleteBtn.id = `${object.id}`;
+    deleteBtn.onclick = () => {
+        if (Number(deleteBtn.id) === object.id) {
+            let id = object.id;
+            const product = document.getElementById(`${id}`);
+            product.remove();
+            const newProductArray = productArray.filter((object) => object.id !== id);
+            productArray = newProductArray;
+        }
+    }
 
     const productValue = document.createElement('p');
     productValue.classList.add('product');
@@ -73,12 +82,3 @@ function catalogFilter() {
     }
 };
 prodCatList.addEventListener('change', catalogFilter);
-
-// Функция удаления по нажатию на кнопку
-
-// Подскажите, Я создаю кнопку на 37ой строке 
-// Но я не могу повешать на нее addEvenListener , потому что кнопка создасться только в
-// момент добавления товара
-// А когда добавляю Слушателя то ошибка в консоле.
-// В общем вопрос, как слушателя добавить на кнопку, которая только будет создана,
-// но еще не создана? 
