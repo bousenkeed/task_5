@@ -19,14 +19,12 @@ function addToArray() {
         count++;
         productName.value = '';
         productPrice.value = '';
-        console.log(obj);
     }
 }
 
 btnSubmit.addEventListener('click', addToArray);
 
 // функция создания контейнера с товаром
-
 function createProduсts(object) {
     const productList = document.createElement('div');
     productList.classList.add('products-list');
@@ -38,6 +36,8 @@ function createProduсts(object) {
     deleteBtn.textContent = 'Удалить товар';
     deleteBtn.type = 'submit';
     deleteBtn.id = `${object.id}`;
+
+    // Удаление товара из каталога
     deleteBtn.onclick = () => {
         if (Number(deleteBtn.id) === object.id) {
             let id = object.id;
@@ -55,7 +55,6 @@ function createProduсts(object) {
     productList.append(productValue, deleteBtn);
 }
 //Функция отображения массива с товарами на странице
-
 function addToTist() {
     list.innerHTML = '';
     for (let obj of productArray) {
@@ -65,10 +64,7 @@ function addToTist() {
 
 btnSubmit.addEventListener('click', addToTist);
 
-
-
 // Функция фильтрации по каталогу
-
 const prodCatList = document.getElementById("productCategory-list")
 
 function catalogFilter() {
