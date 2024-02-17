@@ -71,7 +71,6 @@ function catalogFilter() {
             createProduсts(obj);
         }
     }
-    console.log(newCatalog);
 };
 prodCatList.addEventListener('change', catalogFilter);
 
